@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Graphviz } from "graphviz-react";
+import swall from "sweetalert2";
 
 function Matriz() {
   const [inputFilas, setInputFilas] = useState(0);
@@ -27,6 +28,15 @@ function Matriz() {
       f.map((c, j) => (i === fila && j === col ? parseInt(value) || 0 : c))
     );
     setMatriz(nuevaMatriz);
+  };
+
+  const ComoUsar = () => {
+    swall.fire({
+      title: "Como usar Grafos Matematicos",
+      html: "<h5>1. Ingrese la cantidad de filas y columnas de la matriz de adyacencia.</h5><h5>2. Conecte los nodos ingresando 1 o 0 en las casillas correspondientes y observaras como tu nodo se organiza.</h5>",
+      icon: "info",
+      confirmButtonText: "Aceptar",
+    });
   };
 
   const generarDOT = () => {
@@ -116,6 +126,19 @@ function Matriz() {
           </section>
         </section>
       )}
+
+      <footer>
+        <button onClick={ComoUsar}>Como usar Grafos Matematicos</button>
+        <div>
+          <h4>Cristian Alvarez || 2451034-2724</h4>
+          <h4>Victor Tigreros || 2357768-2724</h4>
+          <h6>APP GRAFOS MATEMATICOS || 2025</h6>
+          <h6>
+            Aplicación desarrollada con fines educativos para la Universidad del
+            Valle, ubicada en el Valle del Cauca, Colombia.
+          </h6>
+        </div>
+      </footer>
     </>
   );
 }
